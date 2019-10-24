@@ -33,7 +33,7 @@ export class HomePage {
       if (this.platform.is('tablet') || this.platform.is('mobile')) {
         this.tabletOMovil = true;
         this.flashligth.available().then(() => {
-          this.flashDisponible = true;  
+          this.flashDisponible = true;
         });
       } else {
         this.tabletOMovil = false;
