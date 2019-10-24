@@ -1,5 +1,7 @@
 {
   "name": "cursoTrainingIT_ejercicio08_linterna",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

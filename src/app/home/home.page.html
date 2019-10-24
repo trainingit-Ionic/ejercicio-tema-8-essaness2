@@ -1,14 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Linterna
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-label *ngIf="!tabletOMovil">El dispositivo no dispone de flash</ion-label>
+  <ion-label *ngIf="tabletOMovil && !flashDisponible">El flash no está disponible</ion-label>
+  <ion-button (click)="accionBoton()"  *ngIf="tabletOMovil && flashDisponible" ><ion-icon name="flashlight"></ion-icon><ion-label *ngIf="encendido">Apagar</ion-label> <ion-label *ngIf="!encendido">Encender</ion-label></ion-button>
 </ion-content>
