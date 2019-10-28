@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Platform } from "@ionic/angular";
+import { Platform, NavController } from "@ionic/angular";
 import { Flashlight } from '@ionic-native/flashlight/ngx';
 
 @Component({
@@ -11,20 +11,29 @@ export class HomePage {
   encendido = false;
   tabletOMovil = true;
   flashDisponible = false;
-  constructor(public platform: Platform, private flashligth: Flashlight) {
+  constructor(public platform: Platform, private flashligth: Flashlight, private nav: NavController) {
     this.accionFlash();
     console.log(this.platform.platforms());
 
     this.platform.pause.subscribe
     (() => {
+        console.log('pause method');
         this.flashligth.switchOff();
-        this.encendido = false; });
+      });
 
     this.platform.backButton.subscribe(
       () => {
+        console.log('backbutton method');
         this.flashligth.switchOff();
-        this.encendido = false;
        }
+    );
+    this.platform.resume.subscribe(
+     () => {
+       console.log('Resume dejo el flash como estaba');
+       if ( this.encendido === true) {
+          this.flashligth.switchOn();
+       }
+     }
     );
   }
 

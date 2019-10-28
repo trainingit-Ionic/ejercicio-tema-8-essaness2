@@ -9,5 +9,5 @@
 <ion-content>
   <ion-label *ngIf="!tabletOMovil">El dispositivo no dispone de flash</ion-label>
   <ion-label *ngIf="tabletOMovil && !flashDisponible">El flash no está disponible</ion-label>
-  <ion-button (click)="accionBoton()"  *ngIf="tabletOMovil && flashDisponible" ><ion-icon name="flashlight"></ion-icon><ion-label *ngIf="encendido">Apagar</ion-label> <ion-label *ngIf="!encendido">Encender</ion-label></ion-button>
+  <ion-button id="boton" (click)="accionBoton()"  *ngIf="tabletOMovil && flashDisponible" ><ion-icon name="flashlight"></ion-icon><ion-label *ngIf="encendido">Apagar</ion-label> <ion-label *ngIf="!encendido">Encender</ion-label></ion-button>
 </ion-content>
